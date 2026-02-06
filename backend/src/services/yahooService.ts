@@ -20,10 +20,6 @@ export interface YahooData {
   source: 'YAHOO';
 }
 
-// ---------------------------------------------------------
-// 📊 REAL PORTFOLIO DATA (Hardcoded from Offline Build)
-// This ensures the Online Demo shows the EXACT same values as your local version.
-// ---------------------------------------------------------
 interface StockData { price: number; pe: number | string; eps: number | string; }
 
 const REAL_MARKET_DATA: Record<string, StockData> = {
