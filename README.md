@@ -93,7 +93,7 @@ CLIENT_URL=http://localhost:3000
 Start the server:
 
 ```bash
-node server.js
+npx ts-node src/server.ts
 # Runs on http://localhost:5000
 
 ```
