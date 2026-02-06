@@ -1,21 +1,25 @@
-export interface Stock {
+export interface StockHolding {
   id: string;
   name: string;
   symbol: string;
-  quantity: number;
+  exchange: string;
   purchasePrice: number;
-  cmp: number;            
+  quantity: number;
+  sector: string;
   investment: number;
+  cmp: number;
   presentValue: number;
   gainLoss: number;
   gainLossPercent: number;
+  status: 'active' | 'unavailable' | 'error';
   portfolioWeight: number;
-  sector: string;
   peRatio: number | string;
-  marketCap: string;
+  eps: number | string;
+  change: number;
+  source: string;
 }
 
-export interface SectorSummary {
+export interface SectorData {
   name: string;
   totalInvestment: number;
   totalPresentValue: number;
@@ -23,14 +27,20 @@ export interface SectorSummary {
   stockCount: number;
 }
 
+
+export interface PortfolioSummary {
+  totalInvestment: number;
+  totalPresentValue: number;
+  totalGainLoss: number;
+  totalGainLossPercent: number;
+  dataHealth: string;      
+  fetchTimeMs: number;     
+}
+
 export interface PortfolioResponse {
-  summary: {
-    totalInvestment: number;
-    totalPresentValue: number;
-    totalGainLoss: number;
-    totalGainLossPercent: number;
-  };
-  sectors: SectorSummary[];
-  holdings: Stock[];
+  summary: PortfolioSummary;
+  sectors: SectorData[];
+  holdings: StockHolding[];
   lastUpdated: string;
+  isCached: boolean;
 }
