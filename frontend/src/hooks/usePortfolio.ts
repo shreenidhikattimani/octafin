@@ -21,7 +21,7 @@ export const usePortfolio = () => {
     });
 
     socket.on('connect_error', (err) => {
-      console.error(err);
+      console.error("Socket Error:", err);
       setError('Real-time connection failed');
       setIsConnected(false);
     });
