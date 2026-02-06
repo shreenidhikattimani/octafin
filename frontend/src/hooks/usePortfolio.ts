@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import { PortfolioResponse } from '../types';
 
-const socket = io('http://localhost:5000');
+const socket = io(process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000');
 
 export const usePortfolio = () => {
   const [data, setData] = useState<PortfolioResponse | null>(null);
@@ -21,7 +21,7 @@ export const usePortfolio = () => {
     });
 
     socket.on('connect_error', (err) => {
-      console.error("Socket Error:", err);
+      console.error(err);
       setError('Real-time connection failed');
       setIsConnected(false);
     });
