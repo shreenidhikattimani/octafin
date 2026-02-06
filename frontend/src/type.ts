@@ -1,3 +1,4 @@
+// frontend/src/types.ts
 export interface StockHolding {
   id: string;
   name: string;
@@ -32,8 +33,8 @@ export interface PortfolioSummary {
   totalPresentValue: number;
   totalGainLoss: number;
   totalGainLossPercent: number;
-  dataHealth: string;
-  fetchTimeMs: number;
+  dataHealth: string;      
+  fetchTimeMs: number;     
 }
 
 export interface PortfolioResponse {
